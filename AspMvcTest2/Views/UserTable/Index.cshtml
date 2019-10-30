@@ -1,0 +1,31 @@
+﻿@model List<Users>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Пользователи</h2>
+
+<table class="table">
+    <tr>
+        <th>Идентефикатор</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Роль</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@Html.DisplayFor(i => item.IdUser)</td>
+    <td>@Html.DisplayFor(i => item.FirstName)</td>
+    <td>@Html.DisplayFor(i => item.LastName)</td>
+    <td>@Html.DisplayFor(i => item.Role.RoleName)</td>
+
+    <td>@Html.ActionLink("Редактировать", "Edit", new { id = item.IdUser })</td>
+    <td>@Html.ActionLink("Удалить", "Delete", new { id = item.IdUser })</td>
+</tr>
+    }
+</table>
+
+<p>@Html.ActionLink("Доавить пользователя","Create")</p>

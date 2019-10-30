@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+@model AspMvcTest2.Users
+<h2>Добавление нового пользователя</h2>
+
+@using (Html.BeginForm("Create", "UserTable", FormMethod.Post))
+{
+<fieldset>
+    <p>
+        @Html.LabelFor(m => m.FirstName, "Имя")
+        <br />
+        @Html.EditorFor(m => m.FirstName)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.LastName, "Фамилия")
+        <br />
+        @Html.EditorFor(m => m.LastName)
+
+    </p>
+    <p>
+        Роль <br />
+        @Html.DropDownListFor(m => m.Id, ViewBag.Roles as SelectList)
+    </p>
+    <p><input type="submit" value="Отправить" /></p>
+</fieldset>
+}

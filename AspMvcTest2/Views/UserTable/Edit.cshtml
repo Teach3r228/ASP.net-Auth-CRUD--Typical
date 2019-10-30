@@ -1,0 +1,28 @@
+﻿@using AspMvcTest2.Controllers;
+@{
+    ViewBag.Title = "Edit";
+}
+@model AspMvcTest2.Users
+
+<h2>Книга № @Model.IdUser</h2>
+@using (Html.BeginForm("Edit", "UserTable", FormMethod.Post))
+{
+<fieldset>
+    @Html.HiddenFor(m => m.IdUser)
+    <p>
+        @Html.LabelFor(m => m.FirstName, "Имя")
+        <br />
+        @Html.EditorFor(m => m.FirstName)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.LastName, "Фамилия")
+        <br />
+        @Html.EditorFor(m => m.LastName)
+    </p>
+    <p>
+        Роль <br />
+        @Html.DropDownListFor(m => m.Id, ViewBag.Roles as SelectList)
+    </p>
+    <p><input type="submit" value="Отправить" /></p>
+</fieldset>
+}
